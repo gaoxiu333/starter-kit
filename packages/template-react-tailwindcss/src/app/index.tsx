@@ -1,36 +1,43 @@
-import { Outlet } from "react-router-dom";
-import { SidebarNav } from "../components/sidebar-nav";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
-const sidebarNavItems = [
+const ITMES = [
   {
-    title: "Page1",
-    href: "/page1",
+    title: "home",
+    href: "/home",
   },
   {
-    title: "Page2",
-    href: "/page2",
+    title: "about",
+    href: "/about",
   },
 ];
 export function App() {
   return (
-    <>
-      <div className="md:hidden">111</div>
-      <div className="hidden space-y-6 p-10 pb-16 md:block">
-        <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">App</h2>
-          <p className="text-muted-foreground">使用TypeScript构建</p>
-        </div>
-        <hr />
-        {/* <Separator className="my-6" /> */}
-        <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-          <aside className="-mx-4 lg:w-1/5">
-            <SidebarNav items={sidebarNavItems} />
-          </aside>
-          <div className="flex-1 lg:max-w-2xl">
-            <Outlet />
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="flex flex-col items-center h-screen bottom-1">
+      <header className="py-3 mt-10 space-x-2">
+        <Link to="/">
+          <span>logo</span>
+        </Link>
+
+        {ITMES.map((item) => (
+          <NavLink
+            key={item.href}
+            to={item.href}
+            className={({ isActive }) =>
+              (isActive
+                ? "bg-slate-300/30 rounded-md "
+                : "hover:bg-transparent hover:underline") +
+              " " +
+              "justify-start p-2"
+            }
+          >
+            {item.title}
+          </NavLink>
+        ))}
+      </header>
+      <main className="py-12">
+        <Outlet />
+      </main>
+      <footer>by Vite+React+Tailwind</footer>
+    </div>
   );
 }
