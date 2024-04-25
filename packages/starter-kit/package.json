@@ -1,0 +1,47 @@
+{
+  "name": "@xiu/starter-kit",
+  "version": "0.0.1",
+  "keywords": [
+    "react",
+    "vue",
+    "vite",
+    "typescript",
+    "starter"
+  ],
+  "description": "生成最小配置文件的项目。",
+  "repository": {
+    "type": "git",
+    "url": "https://github/gaoxiu3333/quick-launch.git",
+    "directory": "packages/quick-launch"
+  },
+  "main": "./bin/index.js",
+  "type": "module",
+  "bin": {
+    "quick-launch": "./bin/index.js",
+    "ql": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "ts-node src/template.ts"
+  },
+  "files": [
+    "bin"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/cross-spawn": "^6.0.6",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.12.7",
+    "@types/prompts": "^2.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2"
+  }
+}
