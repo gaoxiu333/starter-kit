@@ -2,7 +2,7 @@ import React from "react";
 
 import type { MenuProps } from "antd";
 import { Layout, Menu, theme } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const { Header, Content, Sider } = Layout;
 
@@ -20,7 +20,6 @@ const App: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <Layout
@@ -52,7 +51,7 @@ const App: React.FC = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            {location.pathname}
+            <Outlet />
           </Content>
         </Layout>
       </Layout>
