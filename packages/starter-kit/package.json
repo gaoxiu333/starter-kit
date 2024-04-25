@@ -1,5 +1,5 @@
 {
-  "name": "@xiu/starter-kit",
+  "name": "pack-kit",
   "version": "0.0.1",
   "keywords": [
     "react",
@@ -8,17 +8,20 @@
     "typescript",
     "starter"
   ],
-  "description": "生成最小配置文件的项目。",
+  "description": "Starter Pack-Kit",
   "repository": {
     "type": "git",
-    "url": "https://github/gaoxiu3333/starter-kit.git",
+    "url": "https://github.com/gaoxiu333/starter-kit.git",
     "directory": "packages/starter-kit"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "main": "./bin/index.js",
   "type": "module",
   "bin": {
-    "kit": "./bin/index.js",
-    "starter-kit": "./bin/index.js"
+    "kit": "bin/index.js",
+    "starter-kit": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
