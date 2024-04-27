@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import fs from "fs/promises";
 
 const packagesDir = path.resolve(fileURLToPath(import.meta.url), "../..");
-const binPath = path.resolve(packagesDir, "quick-lauhch", "bin");
+const binPath = path.resolve(packagesDir, "starter-kit", "bin");
 
 const files = await fs.readdir(packagesDir);
 for (const file of files) {
