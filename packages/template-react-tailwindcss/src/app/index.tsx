@@ -19,17 +19,7 @@ export function App() {
         </Link>
 
         {ITMES.map((item) => (
-          <NavLink
-            key={item.href}
-            to={item.href}
-            className={({ isActive }) =>
-              (isActive
-                ? "bg-slate-300/30 rounded-md "
-                : "hover:bg-transparent hover:underline") +
-              " " +
-              "justify-start p-2"
-            }
-          >
+          <NavLink key={item.href} to={item.href} className={({ isActive }) => (isActive ? "bg-slate-300/30 rounded-md " : "hover:bg-transparent hover:underline") + " " + "justify-start p-2"}>
             {item.title}
           </NavLink>
         ))}
