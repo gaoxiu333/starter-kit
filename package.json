@@ -4,7 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "kit": "pnpm --filter starter-kit"
+    "kit": "pnpm --filter starter-kit",
+    "script": "pnpm --filter scripts",
+    "uptel":"pnpm script update",
+    "build":"pnpm kit build",
+    "dev":"pnpm build && pnpm up"
+
   },
   "keywords": [],
   "author": "",
