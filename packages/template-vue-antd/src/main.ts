@@ -11,7 +11,6 @@ const app = createApp(App)
 
 const bootstrap = () => {
   app.use(createPinia())
-
   app.use(Antd)
 
   setupRouter(app)
