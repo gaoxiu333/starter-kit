@@ -1,17 +1,15 @@
 import { THEMES } from "../../../lib/storages/themes";
-import { Palette } from "lucide-react";
+import { Check, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect } from "react";
-import { themeChange } from "theme-change";
+
+import clsx from "clsx";
 
 const SwitchTheme = () => {
-    const { theme, setTheme } = useTheme();
-    useEffect(() => {
-        themeChange(false);
-    }, []);
+    const { resolvedTheme, setTheme } = useTheme();
+
     const handleThemeChange = (event: React.MouseEvent<HTMLButtonElement>, currentTheme: string) => {
         event.preventDefault();
-        const isSameTheme = theme === currentTheme;
+        const isSameTheme = resolvedTheme === currentTheme;
         setTheme(currentTheme);
         try {
             if (document.startViewTransition === undefined) {
@@ -45,10 +43,11 @@ const SwitchTheme = () => {
             <div tabIndex={0} className="dropdown-content bg-base-200 text-base-content rounded-box top-px h-[28.6rem] max-h-[calc(100vh-10rem)] w-56 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-16">
                 <div className="grid grid-cols-1 gap-3 p-3">
                     {THEMES.map((theme) => (
-                        <button key={theme} onClick={(event) => handleThemeChange(event, theme)} className="outline-base-content text-start outline-offset-4 [&_svg]:visible">
+                        <button key={theme} onClick={(event) => handleThemeChange(event, theme)} className="outline-base-content text-start outline-offset-4">
                             <span data-theme={theme} className="bg-base-100 rounded-btn text-base-content block w-full cursor-pointer font-sans">
                                 <span className="grid grid-cols-5 grid-rows-3">
                                     <span className="col-span-5 row-span-3 row-start-1 flex items-center gap-2 px-4 py-3">
+                                        <Check className={clsx(resolvedTheme === theme ? "visible" : "invisible")} />
                                         <span className="flex-grow text-sm">{theme}</span>
                                         <span className="flex h-full shrink-0 flex-wrap gap-1">
                                             <span className="w-2 rounded bg-primary" />
