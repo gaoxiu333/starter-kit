@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "kit": "pnpm --filter starter-kit",
     "script": "pnpm --filter scripts",
-    "uptel":"pnpm script update",
+    "up:template":"pnpm script template",
     "build":"pnpm kit build",
     "dev":"pnpm build && pnpm up"
 
