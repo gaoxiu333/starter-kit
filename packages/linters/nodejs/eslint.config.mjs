@@ -3,21 +3,34 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import nodePlugin from "eslint-plugin-n";
 
-export default [
+const sharedRules = {
+  "n/callback-return": ["error", ["cb", "callback", "next"]],
+  "n/handle-callback-err": ["error", "err"],
+  "n/prefer-node-protocol": "error",
+};
+
+/** 备用配置 */
+const cjsConfigs = [
   {
-    name: "node",
-    plugins: {
-      node: nodePlugin,
-    },
+    ...nodePlugin.configs["recommended-script"],
+    name: "eslint-node/cjs",
+    files: ["**/*.cjs", "**/*.js"],
     rules: {
-      "node/handle-callback-err": ["error", "^(err|error)$"],
-      "node/no-deprecated-api": "error",
-      "node/no-exports-assign": "error",
-      "node/no-new-require": "error",
-      "node/no-path-concat": "error",
-      "node/prefer-global/buffer": ["error", "never"],
-      "node/prefer-global/process": ["error", "never"],
-      "node/process-exit-as-throw": "error",
+      ...sharedRules,
+      "n/no-mixed-requires": "error",
+      "n/no-new-require": "error",
+      "n/no-path-concat": "error",
     },
   },
 ];
+
+const esmConfigs = [
+  {
+    ...nodePlugin.configs["recommended-module"],
+    name: "eslint-node/esm",
+    files: ["**/*.mjs", "**/*.js"],
+    rules: sharedRules,
+  },
+];
+
+export default esmConfigs;
