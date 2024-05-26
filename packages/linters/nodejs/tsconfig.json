@@ -1,0 +1,9 @@
+{
+  "include": ["./src"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "rootDirs": ["./src", "./node_modules"],
+    "outDir": "./dist",
+    "outFile": "./dist/index.js",
+  }
+}
