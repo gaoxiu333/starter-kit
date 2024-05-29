@@ -1,15 +1,9 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import nodePlugin from "eslint-plugin-n";
+// @ts-check
 
-export default [
-  // { files: ["**/*.js"], languageOptions: { sourceType: "script" } },
-  // { languageOptions: { globals: globals.browser } },
-  // pluginJs.configs.recommended,
-  // ...tseslint.configs.recommended,
-  {
-    ...nodePlugin.configs["flat/recommended-module"],
-    ignores: ["eslint.config.mjs"],
-  },
-];
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+);

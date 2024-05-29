@@ -6,12 +6,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "kit": "pnpm --filter starter-kit",
     "script": "pnpm --filter scripts",
-    "up:template":"pnpm script template",
-    "build":"pnpm kit build",
-    "dev":"pnpm build && pnpm up"
-
+    "up:template": "pnpm script template",
+    "build": "pnpm kit build",
+    "dev": "pnpm build && pnpm up"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "packageManager": "pnpm@9.1.2+sha256.19c17528f9ca20bd442e4ca42f00f1b9808a9cb419383cd04ba32ef19322aba7"
 }
