@@ -97,6 +97,12 @@ importers:
         specifier: ^5.2.0
         version: 5.2.12(@types/node@20.12.12)
 
+  dry/template-node:
+    devDependencies:
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
   packages/template-lib:
     devDependencies:
       '@eslint/js':
